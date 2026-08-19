@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 620" width="320" height="620" role="img" aria-label="Placeholder app screenshot: price history for Milk 1L, currently $3.10, down 6 percent since June. Monthly prices from March to August: $3.40, $3.35, $3.25, $3.30, $3.18, $3.10.">
+  <defs>
+    <clipPath id="screen-hist"><rect x="14" y="14" width="292" height="592" rx="32"/></clipPath>
+    <linearGradient id="areaFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#16a34a" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#16a34a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="320" height="620" rx="46" fill="#0f172a"/>
+  <rect x="14" y="14" width="292" height="592" rx="32" fill="#f8fafc"/>
+
+  <g clip-path="url(#screen-hist)">
+    <!-- status bar -->
+    <rect x="14" y="14" width="292" height="46" fill="#ffffff"/>
+    <text x="36" y="43" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0f172a">9:41</text>
+    <rect x="248" y="30" width="22" height="11" rx="3" fill="#0f172a" opacity=".75"/>
+
+    <!-- header -->
+    <rect x="14" y="60" width="292" height="74" fill="#16a34a"/>
+    <text x="36" y="92"  font-family="system-ui, sans-serif" font-size="12" fill="#bbf7d0">Price history</text>
+    <text x="36" y="115" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Milk 1L</text>
+
+    <!-- hero number -->
+    <text x="36" y="176" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">What you last paid</text>
+    <text x="36" y="222" font-family="system-ui, sans-serif" font-size="42" font-weight="800" fill="#0f172a" letter-spacing="-1.5">$3.10</text>
+    <!-- direction text uses the darker green so small text clears 4.5:1 on white -->
+    <text x="36" y="248" font-family="system-ui, sans-serif" font-size="12" font-weight="650" fill="#15803d">&#9660; 6% since June</text>
+
+    <line x1="34" y1="274" x2="286" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="36" y="300" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b" letter-spacing="1">LAST 6 MONTHS</text>
+
+    <!-- ================= line chart =================
+         One series, so the title names it and no legend is needed.
+         Gridlines are recessive; only the latest point is labelled. -->
+    <g>
+      <!-- recessive gridlines -->
+      <line x1="34" y1="320" x2="286" y2="320" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="34" y1="370" x2="286" y2="370" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="34" y1="420" x2="286" y2="420" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="34" y1="470" x2="286" y2="470" stroke="#e2e8f0" stroke-width="1"/>
+
+      <!-- area under the line -->
+      <path d="M46 321.3 L91.6 342.5 L137.2 385 L182.8 363.8 L228.4 414.8 L274 448.8 L274 470 L46 470 Z"
+            fill="url(#areaFade)"/>
+
+      <!-- the line: 2.5px, no smoothing so the real shape shows -->
+      <polyline points="46,321.3 91.6,342.5 137.2,385 182.8,363.8 228.4,414.8 274,448.8"
+                fill="none" stroke="#16a34a" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- markers: white core + green ring reads on any background -->
+      <g fill="#ffffff" stroke="#16a34a" stroke-width="2.5">
+        <circle cx="46"    cy="321.3" r="4"/>
+        <circle cx="91.6"  cy="342.5" r="4"/>
+        <circle cx="137.2" cy="385"   r="4"/>
+        <circle cx="182.8" cy="363.8" r="4"/>
+        <circle cx="228.4" cy="414.8" r="4"/>
+      </g>
+      <!-- latest point emphasised -->
+      <circle cx="274" cy="448.8" r="6.5" fill="#16a34a" stroke="#ffffff" stroke-width="2.5"/>
+
+      <!-- selective direct label: only the current value -->
+      <rect x="228" y="418" width="52" height="22" rx="11" fill="#0f172a"/>
+      <text x="254" y="433" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">$3.10</text>
+
+      <!-- x axis labels -->
+      <g font-family="system-ui, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">
+        <text x="46"    y="492">Mar</text>
+        <text x="91.6"  y="492">Apr</text>
+        <text x="137.2" y="492">May</text>
+        <text x="182.8" y="492">Jun</text>
+        <text x="228.4" y="492">Jul</text>
+        <text x="274"   y="492">Aug</text>
+      </g>
+    </g>
+
+    <!-- footnote -->
+    <rect x="34" y="516" width="252" height="42" rx="12" fill="#eaf7ef"/>
+    <text x="50" y="533" font-family="system-ui, sans-serif" font-size="11" fill="#15803d">Based on your own receipts —</text>
+    <text x="50" y="549" font-family="system-ui, sans-serif" font-size="11" fill="#15803d">6 purchases of this item.</text>
+
+    <text x="160" y="583" font-family="system-ui, sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle" letter-spacing="1.5">PLACEHOLDER SCREENSHOT</text>
+  </g>
+
+  <rect x="120" y="20" width="80" height="20" rx="10" fill="#0f172a"/>
+</svg>

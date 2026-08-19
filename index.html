@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- PLACEHOLDER: brand name appears here and in the nav/footer. -->
+  <title>Near-Buy — Stop guessing where your money goes</title>
+  <meta name="description" content="Scan your grocery receipts. Near-Buy reads every line item, tracks what you spend each month, and shows how prices move on the things you buy regularly." />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+
+  <!-- Social preview (PLACEHOLDER image) -->
+  <meta property="og:title" content="Near-Buy — Stop guessing where your money goes" />
+  <meta property="og:description" content="Scan your grocery receipts. Near-Buy reads every line item, tracks what you spend each month, and shows how prices move on the things you buy regularly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.svg" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Near-Buy home">
+        <img src="assets/logo.svg" alt="" width="52" height="52" />
+        <span class="brand-name">Near&#8209;Buy</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-sm btn-primary nav-cta" href="#get">Get the app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Grocery price intelligence</p>
+          <h1>Stop guessing where<br />your money goes.</h1>
+          <p class="lede">
+            Snap a photo of your receipt. We read every line item, total up what you
+            actually spend each month, and show you how prices move on the things
+            you buy again and again.
+          </p>
+
+          <div class="store-badges" id="get">
+            <!-- PLACEHOLDER: swap for real App Store / Google Play badges at launch. -->
+            <a class="store-badge" href="#" aria-label="Download on the App Store (placeholder link)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><path fill="currentColor" d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.1 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.2-.9-2.2-3.5zM14.3 5.6c.6-.7 1-1.7.9-2.6-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.6 2.6-1.3z"/></svg>
+              <span><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a class="store-badge" href="#" aria-label="Get it on Google Play (placeholder link)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><path fill="currentColor" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3zM16.3 15.6l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.8 2zM15.9 16l-3.2-3.2-9.1 9.1c.3.4.9.4 1.6.1L15.9 16M15.9 8L5.2 2c-.7-.4-1.3-.3-1.6.1l9.1 9.1L15.9 8z"/></svg>
+              <span><small>Get it on</small><strong>Google Play</strong></span>
+            </a>
+          </div>
+
+          <p class="badge-note">Placeholder links — wire these up when the apps ship.</p>
+        </div>
+
+        <div class="hero-art reveal">
+          <img src="assets/app-preview.svg" alt="Placeholder preview of the Near-Buy app showing a scanned receipt and price comparison" width="320" height="620" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REAL-FEATURE SHOWCASE ============
+         What the app does today. Anything not yet built lives in the
+         "Where we're headed" section further down, never up here. -->
+    <section class="showcase" aria-labelledby="showcase-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="showcase-title">Your receipts, finally readable.</h2>
+          <p class="section-sub">
+            Every receipt you scan turns into itemised data you can actually use —
+            where your money went this month, and what you're paying over time for
+            the things you buy again and again.
+          </p>
+        </div>
+
+        <div class="split-grid">
+          <div class="split-item reveal">
+            <img src="assets/spend-tracker.svg" alt="Placeholder app screen showing August spending of $412.60 broken down by category" width="280" height="543" />
+            <div class="split-copy">
+              <h3>Spend tracker</h3>
+              <p>
+                Every scanned receipt rolls up into a running monthly total, split by
+                category. No manual entry, no guessing where the money went.
+              </p>
+            </div>
+          </div>
+
+          <div class="split-item reveal">
+            <img src="assets/price-history.svg" alt="Placeholder app screen showing the price of Milk 1L falling from $3.40 in March to $3.10 in August" width="280" height="543" />
+            <div class="split-copy">
+              <h3>Price history</h3>
+              <p>
+                Buy the same milk every week and you'll see exactly what it has cost
+                you each time — built from your own receipts, not an estimate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Three steps, about ten seconds.</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <div class="step-num">1</div>
+            <h3>Snap the receipt</h3>
+            <p>Point your camera at any printed receipt. Crumpled, faded, and angled shots are fine.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step-num">2</div>
+            <h3>We read every line</h3>
+            <p>Our scanner pulls out each item, quantity, and price, and matches them against what you've bought before.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step-num">3</div>
+            <h3>See your spending clearly</h3>
+            <p>Track where your money goes each month, and watch how prices move on the things you buy regularly.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title">Everything your receipts already know.</h2>
+          <p class="section-sub">You've been throwing away the most useful data about your own spending.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">📷</div>
+            <h3>Receipt scanning</h3>
+            <p>Automatic text recognition turns a photo into structured, itemised data.</p>
+          </article>
+          <article class="feature feature--soon reveal">
+            <div class="feature-icon" aria-hidden="true">🏷️</div>
+            <h3>Price comparison <span class="soon-badge">Coming soon</span></h3>
+            <p>Seeing what the same products cost at other stores nearby — in development, not yet available.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">📈</div>
+            <h3>Price history</h3>
+            <p>Watch how the price of an item has moved week over week.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">💰</div>
+            <h3>Spend tracker</h3>
+            <p>Understand where your grocery budget actually goes each month.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">🗂️</div>
+            <h3>Receipt locker</h3>
+            <p>Every receipt stored and searchable — handy for returns and warranties.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">✏️</div>
+            <h3>Quick corrections</h3>
+            <p>Spot a misread line? Fix it in a tap and the system learns from it.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">🔒</div>
+            <h3>Private by default</h3>
+            <p>Your receipts are yours. Card numbers are never stored.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon" aria-hidden="true">📍</div>
+            <h3>Local by design</h3>
+            <p>Built for South Asian grocery shopping specifically — not a generic budgeting app guessing at your brands.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROADMAP ============
+         Deliberately placed after the real feature set and visually walled off,
+         so nothing here can be mistaken for what ships today. -->
+    <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow eyebrow--soon">Where we're headed</p>
+          <h2 id="roadmap-title">Cross-store price comparison</h2>
+          <p class="section-sub">
+            Not available yet — this is what we're building next. Once enough
+            receipts are flowing in from a neighbourhood, the same basket can be
+            priced across every shop in it.
+          </p>
+        </div>
+
+        <div class="roadmap-frame">
+          <p class="roadmap-tag">Concept preview &#183; not a live feature</p>
+
+          <div class="compare-grid">
+            <!-- PLACEHOLDER data — illustrative figures, not real pricing. -->
+            <article class="compare-card reveal">
+              <header>
+                <span class="store-dot" data-variant="a"></span>
+                <h3>FreshCo</h3>
+              </header>
+              <p class="price">$52.40</p>
+              <p class="price-note price-note--high">Highest for this basket</p>
+              <ul class="line-items">
+                <li><span>Milk 1L ×2</span><span>$7.40</span></li>
+                <li><span>Rice 5kg</span><span>$18.90</span></li>
+                <li><span>Cooking oil 1L</span><span>$8.60</span></li>
+                <li><span>Eggs ×12</span><span>$5.20</span></li>
+              </ul>
+            </article>
+
+            <article class="compare-card compare-card--best reveal">
+              <header>
+                <span class="store-dot" data-variant="b"></span>
+                <h3>Big Bazaar</h3>
+                <span class="pill">Best price</span>
+              </header>
+              <p class="price">$44.90</p>
+              <p class="price-note price-note--low">You save $7.50</p>
+              <ul class="line-items">
+                <li><span>Milk 1L ×2</span><span>$6.20</span></li>
+                <li><span>Rice 5kg</span><span>$16.40</span></li>
+                <li><span>Cooking oil 1L</span><span>$7.10</span></li>
+                <li><span>Eggs ×12</span><span>$4.30</span></li>
+              </ul>
+            </article>
+
+            <article class="compare-card reveal">
+              <header>
+                <span class="store-dot" data-variant="c"></span>
+                <h3>Walmart</h3>
+              </header>
+              <p class="price">$48.60</p>
+              <p class="price-note">$3.70 more than the best</p>
+              <ul class="line-items">
+                <li><span>Milk 1L ×2</span><span>$6.80</span></li>
+                <li><span>Rice 5kg</span><span>$17.60</span></li>
+                <li><span>Cooking oil 1L</span><span>$7.90</span></li>
+                <li><span>Eggs ×12</span><span>$4.70</span></li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="disclaimer">
+            Illustrative mockup. Store names and figures are placeholders — not
+            real prices, and not an offer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="cta-band">
+      <div class="wrap cta-inner reveal">
+        <div>
+          <h2>Find out what you've been overpaying.</h2>
+          <p>Free to start. No card required.</p>
+        </div>
+        <a class="btn btn-lg btn-invert" href="#get">Get the app</a>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap wrap-narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions, answered.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="reveal">
+            <summary>Does it cost anything?</summary>
+            <p>Scanning receipts and tracking your spending is free. Placeholder copy — replace with your real pricing once decided.</p>
+          </details>
+          <details class="reveal">
+            <summary>Which stores does it work with?</summary>
+            <p>Any store that prints a receipt — the scanner reads the paper, so it doesn't depend on a partnership. Comparing prices <em>between</em> stores is still in development.</p>
+          </details>
+          <details class="reveal">
+            <summary>What happens to my receipt photos?</summary>
+            <p>They're stored against your account so you can search them later. Payment card details are never retained.</p>
+          </details>
+          <details class="reveal">
+            <summary>What if the scanner reads something wrong?</summary>
+            <p>You can correct any line item yourself, and low-confidence reads are flagged for review before they affect prices.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <img src="assets/logo.svg" alt="" width="40" height="40" />
+          <span class="brand-name">Near&#8209;Buy</span>
+        </a>
+        <p class="footer-tag">Smarter shopping, better savings.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Product">
+        <h4>Product</h4>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#get">Download</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Company">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="mailto:hello@example.com">Contact</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </nav>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p>&copy; <span id="year">2026</span> Near-Buy. Placeholder site — not yet live.</p>
+      <div class="socials" aria-label="Social links">
+        <a href="#" aria-label="Facebook (placeholder)">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.45-4 4.1v2.3H7.6V14h2.7v8h3.2z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn (placeholder)">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5H4.06V20h2.88V8.5zM5.5 4a1.7 1.7 0 100 3.4A1.7 1.7 0 005.5 4zM20 20h-2.87v-5.6c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95V20H10.2V8.5h2.76v1.57h.04c.38-.72 1.32-1.49 2.72-1.49 2.9 0 3.44 1.91 3.44 4.4V20z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram (placeholder)">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2.9c2.94 0 3.28.01 4.44.06 1.07.05 1.65.23 2.04.38.51.2.88.44 1.26.82.38.38.62.75.82 1.26.15.39.33.97.38 2.04.05 1.16.06 1.5.06 4.44s-.01 3.28-.06 4.44c-.05 1.07-.23 1.65-.38 2.04-.2.51-.44.88-.82 1.26-.38.38-.75.62-1.26.82-.39.15-.97.33-2.04.38-1.16.05-1.5.06-4.44.06s-3.28-.01-4.44-.06c-1.07-.05-1.65-.23-2.04-.38-.51-.2-.88-.44-1.26-.82-.38-.38-.62-.75-.82-1.26-.15-.39-.33-.97-.38-2.04C2.91 15.28 2.9 14.94 2.9 12s.01-3.28.06-4.44c.05-1.07.23-1.65.38-2.04.2-.51.44-.88.82-1.26.38-.38.75-.62 1.26-.82.39-.15.97-.33 2.04-.38C8.72 2.91 9.06 2.9 12 2.9zm0 5.1a4 4 0 100 8 4 4 0 000-8zm0 6.6a2.6 2.6 0 110-5.2 2.6 2.6 0 010 5.2zm5.1-6.75a.94.94 0 11-1.87 0 .94.94 0 011.87 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
