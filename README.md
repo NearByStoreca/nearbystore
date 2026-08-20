@@ -17,7 +17,8 @@ GitHub Pages straight from `main` at the repo root. Previously lived in
 ├── styles.css          # design tokens + layout
 ├── script.js           # mobile nav, scroll reveal, footer year
 ├── assets/
-│   ├── logo.svg        # brand mark / favicon — receipt in, analysis out
+│   ├── logo.svg        # brand mark / favicon — shopfront under a striped
+│   │                   #   awning, signed with the N of NearBuyStore
 │   ├── app-preview.svg # PLACEHOLDER phone screenshot
 │   └── og-image.svg    # PLACEHOLDER social share image
 ├── CNAME               # custom domain for GitHub Pages (nearbystore.ca)
