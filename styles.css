@@ -155,17 +155,11 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 /* The one live call to action in the hero — sits under the store badges and
    carries more weight than the .badge-note disclaimer beneath it. */
-.early-access {
-  margin-top: 1.1rem; font-size: .93rem; color: var(--ink-soft); font-weight: 550;
-  display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+.early-access { margin-top: 1.25rem; }
+.early-access-line {
+  font-size: .93rem; color: var(--ink-soft); font-weight: 550; margin-bottom: .8rem;
 }
-.early-access-link {
-  display: inline-flex; align-items: center; gap: .35rem;
-  color: var(--brand-dark); font-weight: 700; text-decoration: none;
-  border-bottom: 2px solid rgba(22, 163, 74, .35); padding-bottom: 1px;
-  transition: border-color .15s ease;
-}
-.early-access-link:hover { border-bottom-color: var(--brand); }
+.early-access-note { margin-top: .55rem; font-size: .82rem; color: var(--muted); }
 
 .badge-note {
   margin-top: .75rem; font-size: .82rem; color: var(--muted);
