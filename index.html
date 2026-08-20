@@ -39,7 +39,12 @@
         <a href="#features">Features</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn-sm btn-primary nav-cta" href="#get">Apps coming soon</a>
+        <!-- The web app is the one thing people can actually use today, so it
+             gets the header CTA slot the "coming soon" badge used to hold. -->
+        <a class="btn btn-sm btn-primary nav-cta" href="https://app.nearbystore.ca/" target="_blank" rel="noopener">
+          Open web app
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </nav>
     </div>
   </header>
@@ -70,6 +75,16 @@
               <span><small>Coming soon to</small><strong>Google Play</strong></span>
             </span>
           </div>
+
+          <!-- Sits directly under the two store badges: the apps aren't out, but
+               the browser version is, so this is where we point people at it. -->
+          <p class="early-access">
+            Early access — help us build better grocery intelligence.
+            <a class="early-access-link" href="https://app.nearbystore.ca/" target="_blank" rel="noopener">
+              Try NearBuyStore in your browser
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </p>
 
           <p class="badge-note">
             <span class="soon-badge">Upcoming apps</span>
@@ -415,7 +430,7 @@
     </div>
 
     <div class="wrap footer-bottom">
-      <p>&copy; <span id="year">2026</span> NearBuyStore. Placeholder site — apps not yet released.</p>
+      <p>&copy; <span id="year">2026</span> NearBuyStore.</p>
       <div class="socials" aria-label="Social links">
         <a href="#" aria-label="Facebook (placeholder)">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.45-4 4.1v2.3H7.6V14h2.7v8h3.2z"/></svg>
