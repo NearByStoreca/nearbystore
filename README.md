@@ -5,8 +5,10 @@ small amount of JavaScript — **no build step, no framework, no external networ
 requests**. Every asset is local, so it works fully offline and can be dropped
 onto any static host as-is.
 
-Live at <https://nearbystoreca.github.io/nearbystore/>, served by GitHub Pages
-straight from `main` at the repo root. Previously lived in `website/` inside
+Live at <https://nearbystore.ca> (the `CNAME` file sets that custom domain;
+<https://nearbystoreca.github.io/nearbystore/> redirects to it), served by
+GitHub Pages straight from `main` at the repo root. Previously lived in
+`website/` inside
 [localized-retail-platform](https://github.com/sandyisgreat/localized-retail-platform).
 
 ```
@@ -18,6 +20,7 @@ straight from `main` at the repo root. Previously lived in `website/` inside
 │   ├── logo.svg        # brand mark / favicon — receipt in, analysis out
 │   ├── app-preview.svg # PLACEHOLDER phone screenshot
 │   └── og-image.svg    # PLACEHOLDER social share image
+├── CNAME               # custom domain for GitHub Pages (nearbystore.ca)
 ├── .nojekyll           # serve files as-is, skip the Jekyll build
 └── README.md
 ```
