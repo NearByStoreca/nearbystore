@@ -5,7 +5,7 @@ small amount of JavaScript — **no build step, no framework, no external networ
 requests**. Every asset is local, so it works fully offline and can be dropped
 onto any static host as-is.
 
-Live at <https://sandyisgreat.github.io/nearbystore/>, served by GitHub Pages
+Live at <https://nearbystoreca.github.io/nearbystore/>, served by GitHub Pages
 straight from `main` at the repo root. Previously lived in `website/` inside
 [localized-retail-platform](https://github.com/sandyisgreat/localized-retail-platform).
 
@@ -15,7 +15,7 @@ straight from `main` at the repo root. Previously lived in `website/` inside
 ├── styles.css          # design tokens + layout
 ├── script.js           # mobile nav, scroll reveal, footer year
 ├── assets/
-│   ├── logo.svg        # PLACEHOLDER brand mark / favicon
+│   ├── logo.svg        # brand mark / favicon — receipt in, analysis out
 │   ├── app-preview.svg # PLACEHOLDER phone screenshot
 │   └── og-image.svg    # PLACEHOLDER social share image
 ├── .nojekyll           # serve files as-is, skip the Jekyll build
@@ -41,18 +41,31 @@ Everything below is intentionally temporary — swap it out before launch.
 
 | Placeholder | Where |
 |---|---|
-| Brand name **Near-Buy** | `index.html` (`<title>`, nav, footer), `og-image.svg` |
-| Logo mark | `assets/logo.svg` |
 | App screenshot | `assets/app-preview.svg` |
 | Social preview image | `assets/og-image.svg` |
-| App Store / Google Play links | `index.html` — currently `href="#"` |
 | Store badge artwork | Generic buttons, **not** the official Apple/Google badges. Download the real ones from each vendor; both have branding rules you must follow. |
 | Prices in the comparison cards | `index.html` — illustrative figures, labelled as such on the page |
+| Items in the grocery-list concept | `index.html` — illustrative, labelled as such on the page |
 | Company / legal / social links | Footer, currently `href="#"` |
 | Contact email `hello@example.com` | Footer |
 
-To rename the product, search `index.html` for `Near-Buy` (it appears in the
-title, meta tags, nav, and footer) plus the `aria-label` on the logo link.
+To rename the product, search `index.html` for `NearBuyStore` (it appears in the
+title, meta tags, nav, and footer) plus the `aria-label` on the logo link, and
+`og-image.svg`.
+
+## What is not yet released
+
+Neither mobile app has shipped. The hero "store badges" are deliberately inert
+`<span>` elements styled with `.store-badge.is-soon` — dashed, dimmed and
+labelled *Coming soon to…* — rather than `<a href="#">`, so nothing on the page
+can be mistaken for a working download. When the apps go live, swap those spans
+back to anchors, drop the `is-soon` class, and update the `#get` badge note, the
+nav CTA, the CTA band and the first FAQ entry.
+
+Unshipped **features** live only in the `#roadmap` section (cross-store price
+comparison, and the grocery list), each inside a dashed `.roadmap-frame` with an
+explicit "not a live feature" tag. Keep new roadmap items there rather than in
+the `#features` grid.
 
 ## Changing the look
 

@@ -1,5 +1,5 @@
 /* =========================================================
-   Near-Buy marketing site
+   NearBuyStore marketing site
    Light-theme, static, no build step and no external requests.
    Brand colours live in the :root block below — change them
    there and the whole site follows.
@@ -27,6 +27,9 @@
   --shadow-lg:    0 18px 40px rgba(15, 23, 42, .12);
 
   --wrap:         1140px;
+  /* Sticky-header height. The mobile nav drops from exactly this offset, so
+     the two must stay in step — change it here only. */
+  --header-h:     68px;
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
 }
@@ -45,7 +48,7 @@ body {
 }
 
 h1, h2, h3, h4 { line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.02em; }
-h1 { font-size: clamp(2.4rem, 5.5vw, 3.9rem); font-weight: 800; }
+h1 { font-size: clamp(2.3rem, 5vw, 3.55rem); font-weight: 800; text-wrap: balance; }
 h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); font-weight: 750; }
 h3 { font-size: 1.13rem; font-weight: 700; }
 p  { margin: 0 0 1rem; }
@@ -86,14 +89,16 @@ img, svg { max-width: 100%; height: auto; display: block; }
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
 }
-.header-inner { display: flex; align-items: center; gap: 1rem; height: 84px; }
+.header-inner { display: flex; align-items: center; gap: 1rem; height: var(--header-h); }
 
-.brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font-weight: 800; }
-.brand-name { font-size: 1.5rem; letter-spacing: -.03em; }
-.site-footer .brand-name { font-size: 1.28rem; }
+.brand { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 800; }
+.brand img { width: 38px; height: 38px; }
+.brand-name { font-size: 1.32rem; letter-spacing: -.03em; }
+.site-footer .brand img { width: 34px; height: 34px; }
+.site-footer .brand-name { font-size: 1.2rem; }
 
-.site-nav { margin-left: auto; display: flex; align-items: center; gap: 1.6rem; }
-.site-nav a { text-decoration: none; color: var(--ink-soft); font-weight: 550; font-size: .95rem; }
+.site-nav { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; }
+.site-nav a { text-decoration: none; color: var(--ink-soft); font-weight: 550; font-size: .95rem; white-space: nowrap; }
 .site-nav a:hover { color: var(--brand-dark); }
 .site-nav .nav-cta { color: #fff; }
 
@@ -111,18 +116,21 @@ img, svg { max-width: 100%; height: auto; display: block; }
   background:
     radial-gradient(900px 420px at 12% -8%, var(--brand-tint), transparent 62%),
     linear-gradient(180deg, #fff 0%, var(--surface) 100%);
-  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem);
+  /* Tight at the top: the sticky header already supplies breathing room, so
+     anything more here just pushes the headline below the fold. */
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4rem);
   overflow: hidden;
 }
 .hero-inner {
-  display: grid; grid-template-columns: 1.08fr .92fr;
+  /* Copy gets the wider share — the art column only has to hold a 285px phone. */
+  display: grid; grid-template-columns: 1.3fr .7fr;
   gap: clamp(2rem, 5vw, 4rem); align-items: center;
 }
 .eyebrow {
   text-transform: uppercase; letter-spacing: .1em; font-size: .78rem;
-  font-weight: 700; color: var(--brand-dark); margin-bottom: .9rem;
+  font-weight: 700; color: var(--brand-dark); margin-bottom: .7rem;
 }
-.lede { font-size: clamp(1.03rem, 1.5vw, 1.19rem); color: var(--ink-soft); max-width: 52ch; margin-bottom: 2rem; }
+.lede { font-size: clamp(1.03rem, 1.5vw, 1.19rem); color: var(--ink-soft); max-width: 52ch; margin-bottom: 1.75rem; }
 
 .store-badges { display: flex; flex-wrap: wrap; gap: .8rem; }
 .store-badge {
@@ -135,9 +143,25 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .store-badge span { display: flex; flex-direction: column; line-height: 1.15; }
 .store-badge small { font-size: .68rem; opacity: .8; }
 .store-badge strong { font-size: 1rem; font-weight: 650; }
-.badge-note { margin-top: .9rem; font-size: .82rem; color: var(--muted); }
 
-.hero-art { justify-self: center; filter: drop-shadow(0 24px 48px rgba(15, 23, 42, .16)); }
+/* Unreleased apps: the badge is a <span>, and it looks the part — flat,
+   dimmed, no hover lift — so nobody reads it as a working download link. */
+.store-badge.is-soon {
+  background: var(--surface-2); color: var(--ink-soft);
+  border: 1px dashed #cbd5e1; box-shadow: none; cursor: default;
+}
+.store-badge.is-soon:hover { transform: none; box-shadow: none; }
+.store-badge.is-soon small { color: #92400e; opacity: 1; font-weight: 700; letter-spacing: .02em; }
+
+.badge-note {
+  margin-top: 1rem; font-size: .82rem; color: var(--muted);
+  display: flex; align-items: center; gap: .55rem; flex-wrap: wrap;
+}
+
+/* Capped: the phone is much taller than the copy beside it, and with
+   align-items:center every extra pixel of art becomes empty space above the
+   headline. */
+.hero-art { justify-self: center; max-width: 285px; filter: drop-shadow(0 24px 48px rgba(15, 23, 42, .16)); }
 
 /* ---------- section furniture ---------- */
 .section-head { max-width: 660px; margin-bottom: 3rem; }
@@ -166,13 +190,56 @@ img, svg { max-width: 100%; height: auto; display: block; }
   border: 2px dashed #cbd5e1; border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 3vw, 2.5rem); background: rgba(255, 255, 255, .55);
 }
+.roadmap-frame + .roadmap-frame { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
 .roadmap-tag {
-  display: inline-block; margin: 0 0 1.5rem;
+  display: inline-block; margin: 0 0 1.1rem;
   background: #fef3c7; color: #92400e; border: 1px solid #fcd34d;
   font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
   padding: .35rem .8rem; border-radius: 999px;
 }
+.roadmap-heading { font-size: clamp(1.35rem, 2.4vw, 1.8rem); margin-bottom: .4rem; }
+.roadmap-lede { color: var(--ink-soft); max-width: 62ch; margin-bottom: 1.8rem; }
 .roadmap .compare-card { opacity: .92; }
+
+/* ---------- grocery-list concept (roadmap) ---------- */
+.list-demo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.25rem, 3vw, 2rem); align-items: start; }
+
+.list-card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 1.5rem 1.6rem; box-shadow: var(--shadow-sm);
+}
+.list-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.list-card-head h4 { margin: 0; font-size: 1.05rem; }
+.list-count { font-size: .87rem; font-weight: 700; color: var(--brand-dark); font-variant-numeric: tabular-nums; }
+
+.check-list { list-style: none; margin: 0; padding: 0; }
+.check-list li {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .6rem 0; border-top: 1px dashed var(--border); font-size: .95rem;
+}
+.check-list .item { flex: 1; }
+.check-list .hint { color: var(--muted); font-size: .84rem; font-variant-numeric: tabular-nums; }
+.check-list .check {
+  width: 19px; height: 19px; flex: none; border-radius: 6px;
+  border: 2px solid #cbd5e1; background: #fff;
+}
+.check-list .is-done .check {
+  background: var(--brand); border-color: var(--brand);
+  /* inline tick, so the mockup stays a single self-contained file */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+.check-list .is-done .item { color: var(--muted); text-decoration: line-through; }
+
+.list-aside h4 { margin: 0 0 .5rem; font-size: 1.05rem; }
+.list-aside p { color: var(--muted); font-size: .93rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.1rem 0; }
+.chip {
+  background: #fff; border: 1px solid var(--border); border-radius: 999px;
+  padding: .4rem .85rem; font-size: .87rem; font-weight: 600; color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+}
+.list-note { font-size: .87rem; color: var(--muted); margin: 0; }
 
 /* ---------- comparison cards ---------- */
 .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -183,7 +250,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .compare-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .compare-card header { display: flex; align-items: center; gap: .55rem; margin-bottom: .9rem; flex-wrap: wrap; }
-.compare-card h3 { margin: 0; }
+.compare-card h4 { margin: 0; font-size: 1.13rem; font-weight: 700; }
 .compare-card--best { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-tint), var(--shadow-md); }
 
 .store-dot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
@@ -286,17 +353,25 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {
+  /* The longer brand name plus the "Apps coming soon" CTA runs out of room
+     before the mobile menu takes over at 720px — tighten, don't wrap. */
+  .site-nav { gap: 1.05rem; }
+  .brand-name { font-size: 1.18rem; }
   .hero-inner { grid-template-columns: 1fr; text-align: left; }
-  .hero-art { order: -1; max-width: 280px; }
-  .compare-grid, .steps, .split-grid { grid-template-columns: 1fr; }
+  /* Stacked: the headline leads. Putting the 620px-tall phone first pushed
+     every word of the pitch below the fold. */
+  .hero-art { max-width: 250px; margin-top: 1rem; }
+  .compare-grid, .steps, .split-grid, .list-demo { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
+  /* Nav collapses behind the toggle, so the brand gets its full size back. */
+  .brand-name { font-size: 1.3rem; }
   .nav-toggle { display: flex; }
   .site-nav {
-    position: absolute; top: 84px; left: 0; right: 0;
+    position: absolute; top: var(--header-h); left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: #fff; border-bottom: 1px solid var(--border);
     padding: .5rem 24px 1.2rem; box-shadow: var(--shadow-md);

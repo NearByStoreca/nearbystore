@@ -1,4 +1,4 @@
-/* Near-Buy marketing site — small progressive enhancements only.
+/* NearBuyStore marketing site — small progressive enhancements only.
    The page is fully readable and navigable with JavaScript disabled. */
 
 (function () {
