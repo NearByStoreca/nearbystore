@@ -54,10 +54,10 @@ Then open <http://localhost:4000>. A server is required rather than opening
 ## Contact form
 
 The form in `#contact` posts to [FormSubmit](https://formsubmit.co), which
-emails the submission to **srp2784@gmail.com** and then redirects the visitor to
+emails the submission to **omkarvsaudagar@gmail.com** and then redirects the visitor to
 `thanks.html` on our own domain.
 
-- **The destination is the endpoint**: `action="https://formsubmit.co/srp2784@gmail.com"`.
+- **The destination is the endpoint**: `action="https://formsubmit.co/omkarvsaudagar@gmail.com"`.
   Where mail goes is visible in the markup and independently verifiable. To
   change the recipient, change that address — there is no key or dashboard in
   the loop.
