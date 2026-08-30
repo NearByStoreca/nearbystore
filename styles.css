@@ -230,20 +230,67 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .flow-arrow svg { width: 34px; height: 20px; }
 
 /* =========================================================
-   PRODUCT BANDS — alternating screenshot / copy rows
+   SHOWCASE — one screen stays in view while three captions scroll
+   past it. Baseline (no .js, or .js without the has-js-scroller
+   marker script.js adds only once it confirms IntersectionObserver
+   exists): plain stacked steps, each with its own inline image —
+   .showcase-sticky stays display:none throughout. Enhanced: the
+   sticky frame appears, each step's own image hides, and the frame's
+   three images crossfade as script.js marks one .is-active.
    ========================================================= */
-.band {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 6vw, 5rem); align-items: center;
+.showcase-scroller { display: grid; grid-template-columns: 1fr; }
+
+.showcase-sticky { display: none; }
+
+.showcase-step { max-width: 480px; margin-inline: auto; text-align: center; }
+.showcase-step + .showcase-step { margin-top: var(--section-y); }
+.showcase-step-img {
+  max-width: 260px; margin: 0 auto 1.75rem;
+  filter: drop-shadow(0 18px 36px rgba(15, 23, 42, .13));
 }
-.band + .band { margin-top: var(--section-y); }
-.band-art { justify-self: center; max-width: 275px; filter: drop-shadow(0 18px 36px rgba(15, 23, 42, .13)); }
-.band-copy h3 { font-size: clamp(1.35rem, 2.4vw, 1.8rem); letter-spacing: -.03em; margin-bottom: .6rem; }
-.band-copy p { color: var(--ink-soft); font-size: 1.03rem; max-width: 44ch; margin: 0; }
-/* Reversed row: the art moves to column 2 without reordering the DOM, so the
-   heading still precedes its image in the reading order. */
-.band--reverse .band-art { grid-column: 2; grid-row: 1; }
-.band--reverse .band-copy { grid-column: 1; grid-row: 1; }
+.showcase-step h3 { font-size: clamp(1.35rem, 2.4vw, 1.8rem); letter-spacing: -.03em; margin: .5rem 0 .6rem; }
+.showcase-step p { color: var(--ink-soft); font-size: 1.03rem; max-width: 44ch; margin: 0 auto; }
+
+/* Enhanced, both layouts: the frame appears, each step's own inline image
+   hides in favour of it, and steps get tall enough that the pin visibly
+   "holds" while a step crosses the middle of the viewport. */
+.js .showcase-scroller.has-js-scroller .showcase-sticky { display: block; }
+.showcase-frame {
+  position: relative; width: 100%; max-width: 260px; aspect-ratio: 320 / 620;
+  margin-inline: auto;
+  filter: drop-shadow(0 18px 36px rgba(15, 23, 42, .13));
+}
+.showcase-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0; transition: opacity .5s ease;
+}
+.showcase-img.is-active { opacity: 1; }
+.js .showcase-scroller.has-js-scroller .showcase-step-img { display: none; }
+.js .showcase-scroller.has-js-scroller .showcase-step {
+  min-height: 55vh; display: flex; flex-direction: column; justify-content: center;
+  margin-top: 0 !important;
+}
+
+/* Desktop: the frame sits pinned to the left in its own column while
+   steps scroll past on the right — one consistent side, never alternating. */
+@media (min-width: 981px) {
+  .js .showcase-scroller.has-js-scroller {
+    grid-template-columns: minmax(0, 260px) 1fr;
+    align-items: start;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+  .js .showcase-scroller.has-js-scroller .showcase-sticky {
+    /* Deliberately no justify-self here: that switches a grid item from
+       stretching to fill its track to sizing by content, and .showcase-frame
+       is width:100% of *this* box — with nothing definite to stretch to,
+       it collapsed to 0×0. Left at its stretch default, this fills the
+       260px track and the frame's max-width simply matches it. */
+    position: sticky; top: calc(var(--header-h) + 28px);
+    align-self: start;
+  }
+  .js .showcase-scroller.has-js-scroller .showcase-step { max-width: none; text-align: left; }
+  .js .showcase-scroller.has-js-scroller .showcase-step p { margin: 0; }
+}
 
 /* ---------- features ---------- */
 .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -439,10 +486,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
   .flow { grid-template-columns: 1fr; gap: .5rem; }
   .flow-arrow { padding: 0; transform: rotate(90deg); }
 
-  .band, .band--reverse .band-art, .band--reverse .band-copy { grid-template-columns: 1fr; grid-column: 1; grid-row: auto; }
-  .band { text-align: center; }
-  .band-copy p { margin-inline: auto; }
-  .band-art { order: -1; }
+  /* Mobile: the frame pins to the top of the viewport, under the header,
+     while the three captions scroll underneath it — same single side as
+     desktop, just stacked instead of side-by-side. */
+  .js .showcase-scroller.has-js-scroller .showcase-sticky {
+    position: sticky; top: var(--header-h);
+    padding: 14px 0 10px; background: var(--bg); z-index: 1;
+  }
+  .js .showcase-scroller.has-js-scroller .showcase-frame { max-width: 190px; }
+  .js .showcase-scroller.has-js-scroller .showcase-step { min-height: 42vh; }
 }
 
 @media (max-width: 720px) {

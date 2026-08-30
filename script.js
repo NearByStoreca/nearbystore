@@ -67,6 +67,67 @@
   }
 
   /* =========================================================
+     Showcase: pinned-screen scroll
+     Baseline HTML (see index.html) is three plain stacked steps,
+     each with its own image — that's what stays if this block can't
+     run. Only once IntersectionObserver is confirmed available do we
+     mark .showcase-scroller as enhanced, which is what lets the CSS
+     show the sticky frame and hide each step's own inline image in
+     its favour (see styles.css's .has-js-scroller rules). Placed
+     ahead of the contact-form guard below, which returns early on
+     every page that has no #contact-form — i.e. every page but the
+     homepage, where this section also isn't.
+     ========================================================= */
+  var scroller = document.querySelector('.showcase-scroller');
+  if (scroller && 'IntersectionObserver' in window) {
+    scroller.classList.add('has-js-scroller');
+
+    var steps = scroller.querySelectorAll('.showcase-step');
+    var frameImgs = scroller.querySelectorAll('.showcase-img');
+
+    function activate(key) {
+      Array.prototype.forEach.call(frameImgs, function (img) {
+        img.classList.toggle('is-active', img.dataset.key === key);
+      });
+    }
+
+    // A thin horizontal band across the vertical middle of the viewport:
+    // whichever step is crossing it "owns" the frame. Kept as a live set
+    // rather than reacting to each entry in isolation, because a fast or
+    // large scroll (a flick, or a big jump like this) can put more than
+    // one step inside the band within a single callback batch — reacting
+    // to entries in array order would just let whichever step happens to
+    // come last in the DOM win, silently skipping the one actually
+    // centred. Recomputing the true closest-to-centre from the current
+    // set on every callback keeps the active step correct regardless of
+    // scroll speed.
+    var inBand = new Set();
+
+    function settleActive() {
+      if (!inBand.size) return;
+      var mid = window.innerHeight / 2;
+      var best = null;
+      var bestDist = Infinity;
+      inBand.forEach(function (step) {
+        var r = step.getBoundingClientRect();
+        var dist = Math.abs((r.top + r.bottom) / 2 - mid);
+        if (dist < bestDist) { bestDist = dist; best = step; }
+      });
+      if (best) activate(best.dataset.key);
+    }
+
+    var showcaseObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) inBand.add(entry.target);
+        else inBand.delete(entry.target);
+      });
+      settleActive();
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    Array.prototype.forEach.call(steps, function (step) { showcaseObserver.observe(step); });
+  }
+
+  /* =========================================================
      Contact form
      The form posts natively to FormSubmit, which redirects to
      /thanks.html. We do NOT submit it over fetch: the endpoint
