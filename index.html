@@ -64,11 +64,10 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Grocery price intelligence</p>
-          <h1>Stop guessing where your money goes.</h1>
+          <h1>Real prices, from real shoppers near you.</h1>
           <p class="lede">
-            Photograph a grocery receipt. We read every line, and show you where
-            the month actually went.
+            Scan receipts, track spending, and find the cheapest nearby price
+            for anything you buy.
           </p>
 
           <div class="hero-actions">
@@ -192,7 +191,7 @@
       </div>
     </section>
 
-    <!-- ============ PRODUCT BANDS ============
+    <!-- ============ SHOWCASE: pinned-screen scroll ============
          What the app does today. Anything not yet built lives in
          "What we're building next", never here. -->
     <section class="showcase" aria-labelledby="showcase-title">
@@ -201,23 +200,43 @@
           <h2 id="showcase-title">Your receipts, finally readable.</h2>
         </div>
 
-        <div class="band reveal">
-          <div class="band-art">
-            <img src="assets/spend-tracker.svg" alt="The spend tracker screen showing a monthly total broken down by category" width="320" height="620" />
+        <!-- One screen stays pinned (left on desktop, top on mobile — never
+             alternating sides) while these three captions scroll past it;
+             script.js crossfades the matching image in .showcase-frame as
+             each step crosses the middle of the viewport. That frame is
+             purely decorative duplication (aria-hidden, images empty-alt)
+             and stays display:none until JS proves it can run the
+             crossfade — every image's real, accessible copy lives inline
+             in its own .showcase-step below, so the section is complete
+             on its own with no script at all. -->
+        <div class="showcase-scroller">
+          <div class="showcase-sticky" aria-hidden="true">
+            <div class="showcase-frame">
+              <img class="showcase-img is-active" data-key="scan" src="assets/app-preview.svg" alt="" width="320" height="620" />
+              <img class="showcase-img" data-key="spend" src="assets/spend-tracker.svg" alt="" width="320" height="620" />
+              <img class="showcase-img" data-key="price" src="assets/price-history.svg" alt="" width="320" height="620" />
+            </div>
           </div>
-          <div class="band-copy">
-            <h3>Spend tracker</h3>
-            <p>Every scanned receipt rolls into a running monthly total, split by category. No manual entry.</p>
-          </div>
-        </div>
 
-        <div class="band band--reverse reveal">
-          <div class="band-art">
-            <img src="assets/price-history.svg" alt="The price history screen showing what one item has cost over the last six months" width="320" height="620" />
-          </div>
-          <div class="band-copy">
-            <h3>Price history</h3>
-            <p>See exactly what you paid for the same item, every time you bought it. Built from your own receipts, not an estimate.</p>
+          <div class="showcase-steps">
+            <div class="showcase-step reveal" data-key="scan">
+              <img class="showcase-step-img" src="assets/app-preview.svg" alt="The NearbyStore app showing a scanned receipt broken into individual line items" width="320" height="620" />
+              <span class="flow-step">Every receipt</span>
+              <h3>Becomes structured data</h3>
+              <p>One photo turns into store, date and every line item, ready to search and total.</p>
+            </div>
+            <div class="showcase-step reveal" data-key="spend">
+              <img class="showcase-step-img" src="assets/spend-tracker.svg" alt="The spend tracker screen showing a monthly total broken down by category" width="320" height="620" />
+              <span class="flow-step">Spend tracker</span>
+              <h3>A running monthly total</h3>
+              <p>Every scanned receipt rolls into your month, split by category. No manual entry.</p>
+            </div>
+            <div class="showcase-step reveal" data-key="price">
+              <img class="showcase-step-img" src="assets/price-history.svg" alt="The price history screen showing what one item has cost over the last six months" width="320" height="620" />
+              <span class="flow-step">Price history</span>
+              <h3>What you actually paid, over time</h3>
+              <p>See exactly what you paid for the same item, every time you bought it. Built from your own receipts, not an estimate.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -318,8 +337,8 @@
     <section class="cta-band">
       <div class="wrap cta-inner reveal">
         <div>
-          <h2>Find out what you've been overpaying.</h2>
-          <p>Free while we're in beta. No download needed.</p>
+          <h2>Every receipt has a story. Start reading yours.</h2>
+          <p>Free to use. No download needed.</p>
         </div>
         <a class="btn btn-lg btn-invert" href="https://app.nearbystore.ca/" target="_blank" rel="noopener">Try the beta</a>
       </div>
@@ -412,7 +431,7 @@
           </details>
           <details class="reveal">
             <summary>Does it cost anything?</summary>
-            <p>No. It is free while we are in beta. We have not set pricing yet, and if that changes we will tell existing users well in advance rather than springing it on you.</p>
+            <p>Yes, it's free to use. Scanning receipts and tracking your spending doesn't cost anything today. We haven't set pricing for the future, and if that ever changes, we'll tell existing users well before it happens.</p>
           </details>
           <details class="reveal">
             <summary>Which stores does it work with?</summary>
@@ -530,7 +549,7 @@
         "mainEntity": [
           { "@type": "Question", "name": "What is NearbyStore?", "acceptedAnswer": { "@type": "Answer", "text": "A grocery receipt app. You photograph a receipt, it reads every line item, and it turns your own shopping history into a monthly spending picture and a price record for the things you buy again and again." } },
           { "@type": "Question", "name": "Can I use it today?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The beta runs in your browser at app.nearbystore.ca, so there is nothing to install. The iOS and Android apps are still in development and have not been published to either store." } },
-          { "@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is free while we are in beta. We have not set pricing yet, and if that changes we will tell existing users well in advance." } },
+          { "@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's free to use. We haven't set pricing for the future, and if that ever changes, we'll tell existing users well before it happens." } },
           { "@type": "Question", "name": "Which stores does it work with?", "acceptedAnswer": { "@type": "Answer", "text": "Any store that prints a receipt. The scanner reads the paper, so it doesn't depend on a partnership, a loyalty card, or a store integration." } },
           { "@type": "Question", "name": "What does it actually read off my receipt?", "acceptedAnswer": { "@type": "Answer", "text": "The store, the date, and each line item: description, quantity, unit price and line total, plus the receipt totals." } },
           { "@type": "Question", "name": "Do you store my card details?", "acceptedAnswer": { "@type": "Answer", "text": "No. Card numbers, masked card numbers, authorization codes, RRNs, terminal IDs and cardholder names are detected and removed before anything is saved. That check is plain pattern-matching plus a Luhn checksum, run separately from the AI that reads the receipt." } },
