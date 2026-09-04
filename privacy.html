@@ -59,7 +59,7 @@
     <div class="page-head">
       <div class="wrap wrap-narrow">
         <h1>Privacy Policy</h1>
-        <p class="page-meta">Effective 25 August 2026 · Last updated 30 August 2026</p>
+        <p class="page-meta">Effective 25 August 2026 · Last updated 4 September 2026</p>
       </div>
     </div>
 
@@ -129,7 +129,35 @@
           location) to show you nearby stores. We don't save this anywhere: it's used for
           that one moment and then it's gone. This is entirely optional; you can say no and
           still use the app, including by searching manually. We don't use any outside
-          mapping service for this; we just check it against our own list of stores.
+          mapping service for this; we just check it against our own list of stores. You can
+          also manually set your preferred shopping area in settings without sharing your device
+          location.
+        </p>
+
+        <h3>Device permissions</h3>
+        <p>
+          The NearbyStore app requests access to certain device features. You can always revoke
+          these permissions in your device settings, but some app features may become unavailable:
+        </p>
+        <ul>
+          <li><strong>Camera</strong>: to scan product barcodes (Scan a Barcode feature) and optionally capture receipt photos. Permission is requested only when you first use these features.</li>
+          <li><strong>Photo Library</strong>: to select photos from your device when uploading receipts or price reports, and to optionally save processed images back to your library. Permission is requested only when you first use image selection features.</li>
+          <li><strong>Location</strong>: optional, to discover nearby stores and pricing in your area. When granted, it's "when-in-use" only — NearbyStore never accesses your location in the background. If you deny location permission, the app continues to work using your manually set preferred area.</li>
+        </ul>
+
+        <h3>Local device storage</h3>
+        <p>
+          In addition to uploading data to our servers, NearbyStore stores the following information
+          securely on your device using your device's built-in encryption:
+        </p>
+        <ul>
+          <li><strong>Authentication tokens</strong>: used to keep you signed in. These are stored encrypted and never in plain text.</li>
+          <li><strong>App preferences</strong>: your display settings, notification preferences, and manually set preferred shopping area.</li>
+          <li><strong>Onboarding status</strong>: to remember you've completed the initial setup.</li>
+        </ul>
+        <p>
+          This locally-stored data is encrypted at rest and is never transmitted to our servers except
+          as required for core app functionality. None of this data is shared with third parties.
         </p>
 
         <h3>Notifications</h3>
@@ -260,10 +288,20 @@
         <h2>11. How we keep your information safe</h2>
         <p>
           Only you can access your receipts, and that always requires being signed in as the
-          right account. Information sent between your device and our servers is encrypted
-          (scrambled so nobody in between can read it). We limit who can access our systems,
-          and we never write the actual contents of your receipts, the full extracted text,
-          or any payment details into our internal logs.
+          right account. Information sent between your device and our servers uses industry-standard
+          HTTPS encryption (scrambled so nobody in between can read it). We limit who can access
+          our systems, and we never write the actual contents of your receipts, the full extracted
+          text, or any payment details into our internal logs.
+        </p>
+        <p>
+          <strong>Encryption at rest:</strong> Authentication tokens and sensitive preferences stored
+          on your device use platform-native encryption (iOS Keychain on iPhone, Android Keystore on
+          Android), never stored in plain text or visible in app logs.
+        </p>
+        <p>
+          <strong>No tracking:</strong> We don't use any analytics, crash reporting, or tracking tools.
+          Your activity and performance data is only collected as needed to run the app and help us
+          fix problems.
         </p>
         <p>
           No system is perfectly secure, and we won't pretend otherwise. If something ever
