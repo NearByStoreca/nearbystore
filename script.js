@@ -44,6 +44,13 @@
     });
   }
 
+  /* ---------- header shadow once the page scrolls ---------- */
+  if (header) {
+    var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---------- scroll reveal ---------- */
   var revealables = document.querySelectorAll('.reveal');
   var reduceMotion = window.matchMedia &&

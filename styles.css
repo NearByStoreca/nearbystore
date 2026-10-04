@@ -112,6 +112,28 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .btn-ghost { background: transparent; color: var(--ink-soft); border-color: var(--border); }
 .btn-ghost:hover { border-color: var(--line); color: var(--ink); background: var(--card); }
 
+/* Official App Store / Google Play badges. Both assets are cropped tight to
+   the black pill, so equal heights render as equal-sized badges. */
+.store-badge {
+  position: relative; display: inline-flex; line-height: 0; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+a.store-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.store-badge:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+.store-badge img { display: block; height: 48px; width: auto; }
+.store-badge--lg img { height: 54px; }
+.store-badge--sm img { height: 34px; }
+.cta-badges .store-badge--sm img { height: 40px; }
+
+.store-badge--sm, .store-badge--soon { cursor: default; }
+.soon-tag {
+  position: absolute; top: -9px; right: -9px;
+  background: var(--accent); color: #422006;
+  font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; line-height: 1;
+  padding: .32rem .55rem; border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, .18);
+}
+
 /* A plain text link that still reads as an action. */
 .link-arrow {
   display: inline-flex; align-items: center; gap: .35rem;
@@ -126,7 +148,9 @@ img, svg { max-width: 100%; height: auto; display: block; }
   background: var(--header-bg);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
+  transition: box-shadow .2s ease;
 }
+.site-header.is-scrolled { box-shadow: 0 6px 20px rgba(15, 23, 42, .06); }
 .header-inner { display: flex; align-items: center; gap: 1rem; height: var(--header-h); }
 
 .brand { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 800; }
@@ -138,7 +162,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .site-nav { margin-left: auto; display: flex; align-items: center; gap: 1.5rem; }
 .site-nav a { text-decoration: none; color: var(--ink-soft); font-weight: 550; font-size: .95rem; white-space: nowrap; }
 .site-nav a:hover { color: var(--brand-dark); }
-.site-nav .nav-cta { color: #fff; }
+.site-nav .nav-cta, .site-nav .nav-cta:hover { color: #fff; }
 
 .nav-toggle {
   margin-left: auto; display: none; flex-direction: column; gap: 5px;
@@ -156,6 +180,9 @@ img, svg { max-width: 100%; height: auto; display: block; }
     linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
   padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 7vw, 5.5rem);
   overflow: hidden;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  align-items: center;
 }
 .hero-inner {
   display: grid; grid-template-columns: 1.25fr .75fr;
@@ -325,10 +352,19 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .next-list .next-when { font-size: .78rem; font-weight: 650; color: var(--warn-ink); white-space: nowrap; grid-row: 1; grid-column: 2; }
 
 /* ---------- CTA band ---------- */
-.cta-band { background: linear-gradient(135deg, var(--brand-darker), var(--brand-dark)); color: #fff; padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.cta-band h2 { margin-bottom: .3rem; }
+.cta-band {
+  position: relative; overflow: hidden; color: #fff;
+  background:
+    radial-gradient(600px 300px at 90% 0%, rgba(255, 255, 255, .10), transparent 70%),
+    linear-gradient(135deg, var(--brand-darker), var(--brand-dark));
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+}
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; }
+.cta-copy { max-width: 560px; }
+.cta-band .eyebrow { color: #bbf7d0; margin-bottom: .8rem; opacity: 1; }
+.cta-band h2 { margin-bottom: .5rem; }
 .cta-band p { margin: 0; opacity: .92; }
+.cta-badges { display: flex; flex-direction: row; align-items: center; gap: 1rem; }
 
 /* =========================================================
    CONTACT FORM
@@ -514,6 +550,8 @@ img, svg { max-width: 100%; height: auto; display: block; }
   .feature-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
+  .store-badge--lg img { height: 44px; }
+  .cta-badges .store-badge--sm img { height: 34px; }
   .field-row { grid-template-columns: 1fr; }
   .next-list li { grid-template-columns: 1fr; }
   .next-list .next-when { grid-row: auto; grid-column: 1; }
